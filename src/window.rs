@@ -154,7 +154,7 @@ impl<A: Application + 'static + Send> IcedWindow<A> {
         let renderer_settings = A::renderer_settings();
 
         let (mut compositor, renderer) =
-            <Compositor as IGCompositor>::new(renderer_settings).unwrap();
+            <Compositor as IGCompositor>::new(renderer_settings, Some(window)).unwrap();
 
         let surface = compositor.create_surface(window);
 
